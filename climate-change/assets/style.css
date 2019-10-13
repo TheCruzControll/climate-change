@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass:700,800,900');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap');
+h1, h2 {
+    font-family: "Overpass", serif;
+    padding-bottom: 25px;
+    padding-top: 80px;
+}
+
+body {
+    font-size: 1.5rem;
+}
+
+.jumbotron p {
+    font-size: 1.5rem;
+}
+
+.modebar {
+      display: none !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: rgba(134,201,81, 0.2);
+    color: #000;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+.btn {
+    margin:5px;
+}
+
+.nav-item {
+    font-family: 'Overpass', serif;
+    color: #000;
+    font-size: 1.5rem;
+    border: 2px solid rgba(134,201,81, 0.6);
+    margin: 5px;
+}
+
+.nav-tabs {
+    text-align:center;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.jumbotron {
+    padding: 12rem 2rem;
+    font-family: "Overpass", serif;
+    background: rgb(29,185,84);
+    background: linear-gradient(180deg, rgba(29,185,84,1) 0%, rgba(134,201,81,1) 24%, rgba(255,255,255,1) 100%);
+}
+
+._dash-loading {
+    font-family: "Overpass", serif;
+    font-size: 20px;
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 14px;
+    padding: 2em;
+}
+
+.sidenote-text {
+    font-size: 16px;
+    text-align: center;
+    padding-top: 2vh;
+    font-family: "Overpass", serif;
+    color:#666666;
+}
