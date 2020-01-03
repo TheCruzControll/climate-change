@@ -1,12 +1,30 @@
 {
   "intro":{
-    "title":"This is the title",
-    "prose_1":"This is the body text found in /data/prose.json. Split it up by title and the different paragraphs, naming it accordingly. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+    "title": "The Climate Change Conundrum",
+    "prose_1": "Why Electric Bills ⚡ Were Down $30 and Other Impactful Solutions to Reversing Climate Change",
+    "prose_2": "By Marisa Aquilina, Sahil Bobba, Erik Christensen, Francis Cruz, Margot Murvihill, and Anish Yakkala"
   }, 
-  "data explanation":{
-    "title": "hello",
-    "prose_1": "This prose should explain the graph.",
-    "prose_2": "Make a prose for each section. ",
-    "prose_3":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+  "data_explanation_1":{
+    "title": "",
+    "datasets": ["solutions.csv"],
+    "prose_1": "In heated debate over why our November electricity bill was higher than our October bill and who was to blame, we found a silver lining. It was not that the November bill was more than usual, but that the October was less than usual. As a possible nod to some underlying pattern, members in Spec pooled our electric bill data, and found this pattern persisted. Go ahead, and peak at what we saw.",
+    "prose_2": "It turns out, electric bills across California reaped this reward in October. But who is rewarding us? And why are they giving us free money! We can thank a state-wide climate initiative for that.",
+    "prose_3":" What we unfolded was the <a href=\"https://www.cpuc.ca.gov/ClimateCredit/\">California Climage Credit</a>, a credit paid for by large power plants and other greenhouse-gas-emitting corporatations applied to utility bills twice a year. Put simply, state regulation requires corporate powers to pay for their climate damage, and utility payers are subsidized. This policy is a forward stride for reversing climate change is, and it's not the only one."
+  },
+  "data_explanation_2":{
+    "title": "We looked into public opinions and facts about climate change across different geographic cliques.",
+    "datasets": ["avg_temp.csv", "med_age.csv", "med_income.csv", "political.csv"],
+    "prose_1": "[Erik]",
+    "prose_2": "[Sahil]"
+  },
+  "data_explanation_3":{
+    "title": "We looked into public opinions and facts about climate change across different geographic cliques.",
+    "datasets": ["avg_temp.csv", "med_age.csv", "med_income.csv", "political.csv"],
+    "prose_1": "[Erik]",
+    "prose_2": "[Sahil]"
+  },
+  "data_explanation_4":{
+    "title": "We looked into policy opinions and facts about climate change across political cliques. ",
+    "prose_1": "[Anish]"
   }
 }
