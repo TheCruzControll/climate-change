@@ -64,6 +64,7 @@ Steps for data interaction:
     3. Group plots into an arrays for easy access
 '''
 
+
 # fig = go.Figure(data=go.scatter())
 # APP COMPONENTS
 # ==========
