@@ -14,6 +14,8 @@ import re
 from dash.dependencies import Input, Output, State
 import numpy as np
 
+# INITIAL RENDERING OF DATA
+# ==========
 pytrends = TrendReq(hl='en-US', tz=360)
 pytrends.build_payload(['Climate Change'], cat=0,
                        timeframe='today 5-y', geo='US', gprop='')
@@ -51,8 +53,6 @@ state_df = state_df.merge(state_loc, how="inner",
                           left_on=state_df.index, right_on=state_loc.index)
 state_df.set_index("key_0", inplace=True)
 
-# LOAD DATA
-# ==========
 prose_df = pd.read_json("data/prose.json").T
 
 # DATA INTERACTION
@@ -99,6 +99,12 @@ app.layout = html.Div(children=[
         ]
     )
 ])
+
+
+'''
+    Handles user interaction for the state graph. 
+    Updates graph depending on submitted search term
+'''
 
 
 @app.callback(
@@ -150,6 +156,12 @@ def update_graph(n_clicks, new_search_term):
     return new_fig
 
 
+'''
+    Handles user interaction for state characteristcs graph
+    Changes output on dropdown value change or if a new term is submitted
+'''
+
+
 @app.callback(Output('state_characteristic_graph', 'figure'),
               [Input('submit_button', 'n_clicks'),
                Input('state_characteristic', 'value')],
@@ -177,11 +189,16 @@ def update_characteristics_graph(n_clicks, characteristic_term, new_search_term)
     state_df.set_index("key_0", inplace=True)
 
     scatter = go.Scatter(
-        x=state_df[characteristic_term], y=state_df[new_search_term], mode="markers")
+        x=state_df[characteristic_term], y=state_df[new_search_term], mode="markers", hoverinfo="text", hovertext=state_df["abbrev"])
     '''
         ADD CORRELATION LINE
     '''
-    fig = go.Figure(data=scatter)
+    correlation = go.Scatter(
+        x=np.unique(state_df[characteristic_term]),
+        y=np.poly1d(np.polyfit(state_df[characteristic_term], state_df[new_search_term], 1))(
+            np.unique(state_df[characteristic_term]))
+    )
+    fig = go.Figure(data=[scatter, correlation])
     fig.update_layout(
         title_text=new_search_term + ' Search Popularity by %s of State' % characteristic_term,
         xaxis_title=characteristic_term,
