@@ -31,22 +31,3 @@ six==1.13.0
 soupsieve==1.9.5
 urllib3==1.25.7
 Werkzeug==0.16.0
-=======
-gunicorn==19.8.1
-idna==2.6
-ipython-genutils==0.2.0
-itsdangerous==0.24
-Jinja2==2.10.1
-jsonschema==2.6.0
-jupyter-core==4.4.0
-MarkupSafe==1.0
-nbformat==4.4.0
-pandas==0.25.0
-plotly==3.6.1
-pytz==2017.3
-pytrends==4.7.2
-six==1.11.0
-traitlets==4.3.2
-
-Werkzeug==0.15.3
->>>>>>> a9ee14d23c8587ef82af3000d103bdb514ac4dd7
