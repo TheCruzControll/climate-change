@@ -96,7 +96,7 @@ def make_h():
                 html.P(prose["intro"]["p2"])
             ],md=8,
         )
-    ], justify="center", className="hero"
+    ], justify="center",
 )
 
 '''
