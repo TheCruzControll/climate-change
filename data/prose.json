@@ -1,30 +1,24 @@
 {
   "intro":{
     "title": "The Climate Change Conundrum",
-    "prose_1": "Why Electric Bills ⚡ Were Down $30 and Other Impactful Solutions to Reversing Climate Change",
-    "prose_2": "By Marisa Aquilina, Sahil Bobba, Erik Christensen, Francis Cruz, Margot Murvihill, and Anish Yakkala"
+    "p1": "Why Electric Bills ⚡ Were Down $30 and Other Impactful Solutions to Reversing Climate Change",
+    "p2": "By Marisa Aquilina, Sahil Bobba, Erik Christensen, Francis Cruz, Margot Murvihill, and Anish Yakkala"
   }, 
-  "data_explanation_1":{
+  "a1":{
     "title": "",
-    "datasets": ["solutions.csv"],
-    "prose_1": "In heated debate over why our November electricity bill was higher than our October bill and who was to blame, we found a silver lining. It was not that the November bill was more than usual, but that the October was less than usual. As a possible nod to some underlying pattern, members in Spec pooled our electric bill data, and found this pattern persisted. Go ahead, and peak at what we saw.",
-    "prose_2": "It turns out, electric bills across California reaped this reward in October. But who is rewarding us? And why are they giving us free money! We can thank a state-wide climate initiative for that.",
-    "prose_3":" What we unfolded was the <a href=\"https://www.cpuc.ca.gov/ClimateCredit/\">California Climage Credit</a>, a credit paid for by large power plants and other greenhouse-gas-emitting corporatations applied to utility bills twice a year. Put simply, state regulation requires corporate powers to pay for their climate damage, and utility payers are subsidized. This policy is a forward stride for reversing climate change is, and it's not the only one."
+    "p1": "In a debate over our absurdly high November electricity bills, we found a silver lining. It was not that our November bills were more than usual, but that our October bills were somehow less. As a possible indication of some underlying pattern, members in Spec pooled our electric bill data and found that the pattern persisted. Go ahead, and peak at what we saw.",
+    "p2": "It turns out, electric bills across California reaped this reward in October. But who is rewarding us? And why are they are giving us free money! 😤 We can thank a state-wide climate initiative for that. What we unfolded is the California Climate Credit, a credit paid for by large power plants and other greenhouse-gas-emitting corporations applied to our utility bills. Put simply, state regulation requires corporate powers to pay for their climate damage, and utility payers are subsidized in April and October. This policy is a forward stride for reversing climate change is, and it’s not the only one.",
+    "p3": "So, what is the most crucial solution to reversing our emissions?",
+    "p4": "It’s still helpful to keep the fridge close when we’re not using it. But, it’s the wide-scale use of refrigerants in both large corporations and individual homes that contributes most to these emissions. Keeping ourselves and our food cold through air conditioning and refrigerators requires using chemicals that deplete our Earth’s protective, solar-UV-ray absorbing layer. While many refrigerant chemicals— we’re looking at you CFC’s and HCFC’s—are no longer in use or being phased out, they continue to remain floating in our environment.",
+    "p5": "We have pared down the next-best workable solutions to reducing our future output from the “first effort to measure and project the impact of solutions at scale.” So, if you take away one chunk, let it be this. Support policies that move away from CFC’s and HCFC’s and toward friendlier refrigerant methods. Make a mental note that electricity generation by wind turbines and solar farms are very effective in reducing output, and investing in rooftop solar is absolutely worth it. Move toward a plant-rich diet and reduce food waste by planning meals."
   },
-  "data_explanation_2":{
-    "title": "We looked into public opinions and facts about climate change across different geographic cliques.",
-    "datasets": ["avg_temp.csv", "med_age.csv", "med_income.csv", "political.csv"],
-    "prose_1": "[Erik]",
-    "prose_2": "[Sahil]"
+  "a2":{
+    "title": "However, public policy remains an important vehicle for enforcing solutions at scale. So, we evaluated public popularity of the climate change conundrum across geopolitical cliques before scraping text from bills from the past few decades planned, written, and sponsored by our congresspeople.",
+    "p1": "[Erik's exploration]",
+    "p2": "[Sahil's exploration]"
   },
-  "data_explanation_3":{
-    "title": "We looked into public opinions and facts about climate change across different geographic cliques.",
-    "datasets": ["avg_temp.csv", "med_age.csv", "med_income.csv", "political.csv"],
-    "prose_1": "[Erik]",
-    "prose_2": "[Sahil]"
-  },
-  "data_explanation_4":{
-    "title": "We looked into policy opinions and facts about climate change across political cliques. ",
-    "prose_1": "[Anish]"
+  "a3":{
+    "title": "Data 3",
+    "p1": "[Anish's exploration]"
   }
 }
