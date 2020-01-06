@@ -13,6 +13,7 @@ import time
 import re
 from dash.dependencies import Input, Output, State
 import numpy as np
+import json
 
 # INITIAL RENDERING OF DATA
 # ==========
@@ -53,7 +54,8 @@ state_df = state_df.merge(state_loc, how="inner",
                           left_on=state_df.index, right_on=state_loc.index)
 state_df.set_index("key_0", inplace=True)
 
-prose_df = pd.read_json("data/prose.json").T
+with open('data/prose.json', 'r') as JSON:
+    prose = json.load(JSON)
 
 # DATA INTERACTION
 # ==========
@@ -68,6 +70,47 @@ Steps for data interaction:
 # fig = go.Figure(data=go.scatter())
 # APP COMPONENTS
 # ==========
+'''
+Makes a jumbotron-ish component 
+'''
+def make_j():
+    return dbc.Row(
+    [
+        dbc.Col(
+            [
+                html.H1(prose["intro"]["title"])
+            ],md=8,
+        )
+    ], justify="center", className="hero"
+)
+
+'''
+Makes a header component
+'''
+def make_h():
+    return dbc.Row(
+    [
+        dbc.Col(
+            [
+                html.H2(prose["intro"]["p1"]),
+                html.P(prose["intro"]["p2"])
+            ],md=8,
+        )
+    ], justify="center",
+)
+
+'''
+Makes an analysis component with respective paragraphs, 
+given the analysis number (e.g. 1 for "a1")
+'''
+def make_a(a_num):
+    return dbc.Row(
+    [
+        dbc.Col(
+           [html.P(prose["a" + str(a_num)][p]) for p in prose["a" + str(a_num)]], md=8,
+        )
+    ], justify="center"
+)
 
 # fig = go.Figure(data=go.Scatter(
 #     x=state_df["AvgTemp"], y=state_df["Climate Change"], mode="markers"))
@@ -81,7 +124,10 @@ app = dash.Dash(__name__, external_scripts=['https://raw.githubusercontent.com/r
 server = app.server
 
 app.layout = html.Div(children=[
-    html.H1("Hello World"),
+    make_j(),
+    make_h(),
+    make_a(1),
+    make_a(2),
     dcc.Input(id='new_search_term', type='text', value='Climate Change'),
     html.Button(id='submit_button', n_clicks=0, children='Submit'),
     dcc.Dropdown(
@@ -98,7 +144,8 @@ app.layout = html.Div(children=[
                 [dcc.Graph(id='state_characteristic_graph')], md=6
             )
         ]
-    )
+    ),
+    make_a(3)
 ])
 
 

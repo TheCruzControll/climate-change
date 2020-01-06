@@ -78,3 +78,19 @@ body {
     font-family: "Overpass", serif;
     color:#666666;
 }
+
+.hero {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    background-image: url('https://images.unsplash.com/photo-1574786577070-70b30e49c99c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');
+    filter: grayscale(100%);
+    position: relative;
+    padding: 70vh 0 0 0;
+}
+
+.hero:hover {
+    transition: 0.5s;
+    filter: grayscale(0%);
+}
