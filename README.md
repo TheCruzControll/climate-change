@@ -36,7 +36,7 @@
   heroku open
   ```
 
-- You should be able to view your app at https://climate-change.herokuapp.com
+- You should be able to view your app at https://spec-climate-change.herokuapp.com
 
 ## File Structure
 
