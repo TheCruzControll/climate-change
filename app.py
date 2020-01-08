@@ -18,28 +18,48 @@ import json
 # INITIAL RENDERING OF DATA
 # ==========
 
-# Build pytrends
+'''
+Hard Coded Searchterm
+'''
+search_term = 'Climate Change'
+
+'''
+Build pytrends
+'''
 pytrends = TrendReq(hl='en-US', tz=360)
 pytrends.build_payload(['Climate Change'], cat=0,
                        timeframe='today 5-y', geo='US', gprop='')
-# Build age data frame
+
+
+'''
+Build age data frame
+'''
 age_df = pd.read_csv("data/med_age.csv", header=None).set_index(0)
 age_df.index.rename("State", inplace=True)
 age_df.columns = ["Median Age"]
 
-# Build incone data frame
+
+'''
+Build incone data frame
+'''
 inc_df = pd.read_csv(
     "data/median_income.csv").set_index("State").drop("2013.1", axis=1)
 inc_df["2017"] = inc_df["2017"].str.replace(',', "").astype(float)
 
-# Build political data frame
+
+'''
+Build political data frame
+'''
 political_df = pd.read_csv(
     "data/political.csv")
 political_df.columns = ["State", "Democrat",
                         "Republican", "Dem Adv", "N", "Classification"]
 political_df.set_index("State", inplace=True)
 
-# Build lat and long data frame
+
+'''
+Build lat and long data frame
+'''
 state_loc = pd.read_html(
     "https://www.latlong.net/category/states-236-14.html")[0]
 state_loc["Place Name"] = state_loc["Place Name"].str.split(",").str[0]
@@ -47,12 +67,25 @@ state_loc["Place Name"] = state_loc["Place Name"].replace(
     "Missouri State", "Missouri")
 state_loc.set_index("Place Name", inplace=True)
 
-# Build temperature data frame
+
+'''
+Build temperature data frame
+'''
 temp_df = pd.read_csv(
     "data/avg_temp.csv").set_index("State")
 
-# Build state data frame
+
+'''
+Build state data frame
+'''
 state_df = pytrends.interest_by_region()
+abbrvs = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI",
+          "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
+          "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
+          "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA",
+          "WV", "WI", "WY"]
+
+state_df["abbrev"] = abbrvs
 state_df["Median Age"] = state_df.index.map(age_df["Median Age"].to_dict())
 state_df["Median Income"] = state_df.index.map(inc_df["2017"].to_dict())
 state_df["Percent Democrat"] = state_df.index.map(
@@ -63,10 +96,15 @@ state_df = state_df.merge(state_loc, how="inner",
                           left_on=state_df.index, right_on=state_loc.index)
 state_df.set_index("key_0", inplace=True)
 
-# Build solutions data frame
+
+'''
+Build solutions data frame
+'''
 solutions_df = pd.read_csv('data/solutions.csv')
 
-# Load prose
+'''
+Load prose
+'''
 with open('data/prose.json', 'r') as JSON:
     prose = json.load(JSON)
 
@@ -102,9 +140,67 @@ def solution_interaction():
     )
 
 
-# fig = go.Figure(data=go.scatter())
 # APP COMPONENTS
 # ==========
+
+''' 
+State map component
+'''
+
+map_fig = go.Figure(data=go.Choropleth(
+    locations=state_df['abbrev'],  # Spatial coordinates
+    z=state_df[search_term].astype(float),  # Data to be color-coded
+    locationmode='USA-states',  # set of locations match entries in `locations`
+    colorscale='Reds',
+    colorbar_title="Search Popularity",
+))
+
+map_fig.update_layout(
+    title_text='"%s" Search Popularity by State' % search_term,
+    geo_scope='usa',  # limit map scope to USA
+)
+
+
+# scatter = go.Scatter(
+#     x=state_df[characteristic_term], y=state_df[new_search_term], mode="markers", hoverinfo="text", hovertext=state_df["abbrev"])
+# correlation = go.Scatter(
+#     x=np.unique(state_df[characteristic_term]),
+#     y=np.poly1d(np.polyfit(state_df[characteristic_term], state_df[new_search_term], 1))(
+#         np.unique(state_df[characteristic_term]))
+# )
+# fig = go.Figure(data=[scatter, correlation])
+# fig.update_layout(
+#     title_text=new_search_term + ' Search Popularity by %s of State' % characteristic_term,
+#     xaxis_title=characteristic_term,
+#     yaxis_title=new_search_term + ' Search Popularity',
+# )
+'''
+Climate Change Search Popularity by Average Temperature
+'''
+
+scatter = go.Scatter(x=state_df["AvgTemp"], y=state_df[search_term],
+                     mode="markers", hoverinfo="text", hovertext=state_df["abbrev"])
+avg_temp_fig = go.Figure(data=scatter)
+avg_temp_fig.update_layout(
+    title_text='"Climate Change" Search Popularity by Average Temperature',
+    xaxis_title="Avg Temperature",
+    yaxis_title='"Climate Change" Search Popularity'
+)
+
+'''
+Makes graph based on figure passed in
+'''
+
+
+def make_graph(fig):
+    return dcc.Graph(
+        figure=fig
+    )
+
+
+'''
+Makes component based on components passed in
+'''
 
 
 def make_interaction(component):
@@ -169,8 +265,6 @@ def make_a(a_num):
         ], justify="center"
     )
 
-# fig = go.Figure(data=go.Scatter(
-#     x=state_df["AvgTemp"], y=state_df["Climate Change"], mode="markers"))
 
 # APP LAYOUT
 # ==========
@@ -188,6 +282,9 @@ app.layout = html.Div(children=[
     make_interaction(solution_interaction()),
     make_a(2),
     make_a(3),
+    make_interaction(make_graph(map_fig)),
+    make_interaction(make_graph(avg_temp_fig))
+
     # dcc.Input(id='new_search_term', type='text', value='Climate Change'),
     # html.Button(id='submit_button', n_clicks=0, children='Submit'),
     # dcc.Dropdown(
@@ -212,8 +309,6 @@ app.layout = html.Div(children=[
     Handles user interaction for the state graph. 
     Updates graph depending on submitted search term
 '''
-
-
 # @app.callback(
 #     Output('us_graph', 'figure'),
 #     [Input('submit_button', 'n_clicks')],
