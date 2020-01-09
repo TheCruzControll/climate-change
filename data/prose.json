@@ -17,8 +17,8 @@
   },
   "a3": {
     "title": "However, public policy remains an important vehicle for enforcing solutions at scale. So, we evaluated public popularity of the climate change conundrum across geopolitical cliques before scraping text from bills from the past few decades planned, written, and sponsored by our congresspeople.",
-    "p1": "[Erik's exploration]",
-    "p2": "[Sahil's exploration]"
+    "p1": "From the map above, we can see that Vermont has the highest search popularity of the umbrella term 'climate change'. Bernie Sanders, is that you?  Other states in the northeastern region such as Maine and New Hampshire closely follow. This suggests that residents of this area interested in educating themselves more on the issue, possibly searching for news, research, or public opinion. On the other hand, Tennessee and other states in the southern region have the lowest search popularity for 'climate change', suggesting that they already have a good understanding of climate Change from prior knowledge and do not need to learn more about the topic, or they do not care to further educate themselves about it.",
+    "p2": "One interesting association we discovered is that the average temperature of a state is negatively associated with the search popularity, meaning that states with a lower average temperature tend to have a higher search popularity for "Climate Change". One might expect hotter areas to be more concerned about global warming and climate change than colder areas, however it is possible that those who experience more severe weather are more concerned about Climate Change because they feel more impacted by it. Still, it is unclear what is actually causing this association. "
   },
   "a4": {
     "title": "Data 3",
