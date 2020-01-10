@@ -1,96 +1,130 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass:700,800,900');
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap');
-h1, h2 {
-    font-family: "Overpass", serif;
-    padding-bottom: 25px;
-    padding-top: 80px;
+h1,
+h2 {
+  font-family: 'Overpass', serif;
+  padding-bottom: 25px;
+  padding-top: 80px;
 }
 
 body {
-    font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .jumbotron p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .modebar {
-      display: none !important;
+  display: none !important;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    background-color: rgba(134,201,81, 0.2);
-    color: #000;
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background-color: rgba(134, 201, 81, 0.2);
+  color: #000;
 }
 
 .nav-tabs .nav-link {
-    border: none;
+  border: none;
 }
 
 .btn {
-    margin:5px;
+  margin: 5px;
 }
 
 .nav-item {
-    font-family: 'Overpass', serif;
-    color: #000;
-    font-size: 1.5rem;
-    border: 2px solid rgba(134,201,81, 0.6);
-    margin: 5px;
+  font-family: 'Overpass', serif;
+  color: #000;
+  font-size: 1.5rem;
+  border: 2px solid rgba(134, 201, 81, 0.6);
+  margin: 5px;
 }
 
 .nav-tabs {
-    text-align:center;
-    border: none;
-    align-items: center;
-    justify-content: center;
+  text-align: center;
+  border: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .jumbotron {
-    padding: 12rem 2rem;
-    font-family: "Overpass", serif;
-    background: rgb(29,185,84);
-    background: linear-gradient(180deg, rgba(29,185,84,1) 0%, rgba(134,201,81,1) 24%, rgba(255,255,255,1) 100%);
+  padding: 12rem 2rem;
+  font-family: 'Overpass', serif;
+  background: rgb(29, 185, 84);
+  background: linear-gradient(
+    180deg,
+    rgba(29, 185, 84, 1) 0%,
+    rgba(134, 201, 81, 1) 24%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 ._dash-loading {
-    font-family: "Overpass", serif;
-    font-size: 20px;
-    left: 0;
-    line-height: 200px;
-    margin-top: -100px;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    width: 100%;
+  font-family: 'Overpass', serif;
+  font-size: 20px;
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
 }
 
 .footer-text {
-    text-align: center;
-    font-size: 14px;
-    padding: 2em;
+  text-align: center;
+  font-size: 14px;
+  padding: 2em;
 }
 
 .sidenote-text {
-    font-size: 16px;
-    text-align: center;
-    padding-top: 2vh;
-    font-family: "Overpass", serif;
-    color:#666666;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2vh;
+  font-family: 'Overpass', serif;
+  color: #666666;
 }
 
 .hero {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: black;
-    background-image: url('https://images.unsplash.com/photo-1574786577070-70b30e49c99c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');
-    filter: grayscale(100%);
-    position: relative;
-    padding: 70vh 0 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  background-image: url('https://images.unsplash.com/photo-1574786577070-70b30e49c99c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');
+  filter: grayscale(100%);
+  position: relative;
+  padding: 70vh 0 0 0;
 }
 
 .hero:hover {
-    transition: 0.5s;
-    filter: grayscale(0%);
+  transition: 0.5s;
+  filter: grayscale(0%);
+}
+
+blockquote {
+  margin-top: 0.5em;
+  padding: 1em;
+  border-left: 5px solid #999;
+}
+blockquote:before {
+  display: none;
+}
+blockquote p {
+  color: #555;
+  font-size: 12pt;
+  line-height: 1.4;
+  font-family: 'PT Serif', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif',
+    'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+}
+blockquote footer {
+  margin-top: 0.5em;
+  padding: 0;
+  color: #777;
+  font-size: 12pt;
+  text-align: left;
+  font-style: italic;
+}
+blockquote footer:before {
+  content: '— ';
 }

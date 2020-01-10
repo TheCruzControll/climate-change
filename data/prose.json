@@ -7,8 +7,7 @@
   "a1": {
     "title": "",
     "p1": "In a debate over our absurdly high November electricity bills, we found a silver lining. It was not that our November bills were more than usual, but that our October bills were somehow less. As a possible indication of some underlying pattern, members in Spec pooled our electric bill data and found that the pattern persisted. Go ahead, and peak at what we saw.",
-    "p2": "It turns out, electric bills across California reaped this reward in October. But who is rewarding us? And why are they are giving us free money! 😤 We can thank a state-wide climate initiative for that. What we unfolded is the California Climate Credit, a credit paid for by large power plants and other greenhouse-gas-emitting corporations applied to our utility bills. Put simply, state regulation requires corporate powers to pay for their climate damage, and utility payers are subsidized in April and October. This policy is a forward stride for reversing climate change is, and it’s not the only one.",
-    "p3": "So, what is the most crucial solution to reversing our emissions?"
+    "p2": "It turns out, electric bills across California reaped this reward in October. But who is rewarding us? And why are they are giving us free money! 😤 We can thank a state-wide climate initiative for that. What we unfolded is the California Climate Credit, a credit paid for by large power plants and other greenhouse-gas-emitting corporations applied to our utility bills. Put simply, state regulation requires corporate powers to pay for their climate damage, and utility payers are subsidized in April and October. This policy is a forward stride for reversing climate change is, and it’s not the only one."
   },
   "a2": {
     "title": "",
@@ -16,12 +15,21 @@
     "p2": "We have pared down the next-best workable solutions to reducing our future output from the “first effort to measure and project the impact of solutions at scale.” So, if you take away one chunk, let it be this. Support policies that move away from CFC’s and HCFC’s and toward friendlier refrigerant methods. Make a mental note that electricity generation by wind turbines and solar farms are very effective in reducing output, and investing in rooftop solar is absolutely worth it. Move toward a plant-rich diet and reduce food waste by planning meals."
   },
   "a3": {
-    "title": "However, public policy remains an important vehicle for enforcing solutions at scale. So, we evaluated public popularity of the climate change conundrum across geopolitical cliques before scraping text from bills from the past few decades planned, written, and sponsored by our congresspeople.",
-    "p1": "From the map above, we can see that Vermont has the highest search popularity of the umbrella term 'climate change'. Bernie Sanders, is that you?  Other states in the northeastern region such as Maine and New Hampshire closely follow. This suggests that residents of this area interested in educating themselves more on the issue, possibly searching for news, research, or public opinion. On the other hand, Tennessee and other states in the southern region have the lowest search popularity for 'climate change', suggesting that they already have a good understanding of climate Change from prior knowledge and do not need to learn more about the topic, or they do not care to further educate themselves about it.",
-    "p2": "One interesting association we discovered is that the average temperature of a state is negatively associated with the search popularity, meaning that states with a lower average temperature tend to have a higher search popularity for "Climate Change". One might expect hotter areas to be more concerned about global warming and climate change than colder areas, however it is possible that those who experience more severe weather are more concerned about Climate Change because they feel more impacted by it. Still, it is unclear what is actually causing this association. "
+    "title": "However, public policy remains an important vehicle for enforcing solutions at scale. So, we evaluated public popularity of the climate change conundrum across geopolitical cliques before scraping text from bills from the past few decades planned, written, and sponsored by our congresspeople."
   },
   "a4": {
-    "title": "Data 3",
-    "p1": "[Anish's exploration]"
+    "p1": "From the map above, we can see that Vermont has the highest search popularity of the umbrella term 'climate change'. Bernie Sanders, is that you?  Other states in the northeastern region such as Maine and New Hampshire closely follow. This suggests that residents of this area interested in educating themselves more on the issue, possibly searching for news, research, or public opinion. On the other hand, Tennessee and other states in the southern region have the lowest search popularity for 'climate change', suggesting that they already have a good understanding of climate Change from prior knowledge and do not need to learn more about the topic, or they do not care to further educate themselves about it."
+  },
+  "a5": {
+    "p1": "One interesting association we discovered is that the average temperature of a state is negatively associated with the search popularity, meaning that states with a lower average temperature tend to have a higher search popularity for \"Climate Change\". One might expect hotter areas to be more concerned about global warming and climate change than colder areas, however it is possible that those who experience more severe weather are more concerned about Climate Change because they feel more impacted by it. Still, it is unclear what is actually causing this association. "
+  },
+  "a6": {
+    "p1": "In practicality, public policy is the wind of change for reducing damaging output at scale. Curious about the language and used in policy related to climate, we scraped the text and metadata of the extensive collection of recorded climate bills. ",
+    "p2": "Here's an excerpt from a bill from the state of Texas:"
+  },
+  "a7": {
+    "p1": "Of all 3747 bills, the two legislative committees that oversaw the most number of climate bills are the Senate Committee on Environment & Public Works at 1660 and the House Committee on Energy & Commerce at 1058.",
+    "p2": "While former Democratic Senator Frank Lautenberg sponsored the most proposed climate bills at 114, Republican Senator John Chafee sponsored the most climate bills that passed as laws at 9.",
+    "p3": "Where do climate bills currently stand in the legislation? The visual below shows the stage at which all bills are currently at."
   }
 }
