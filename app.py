@@ -4,15 +4,7 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 import plotly.graph_objs as go
 import pandas as pd
-from plotly import tools
 from pytrends.request import TrendReq
-from bs4 import BeautifulSoup
-from datetime import date
-import requests
-import time
-import re
-from dash.dependencies import Input, Output, State
-import numpy as np
 import json
 
 # INITIAL RENDERING OF DATA
@@ -151,7 +143,7 @@ map_fig = go.Figure(data=go.Choropleth(
     locations=state_df['abbrev'],  # Spatial coordinates
     z=state_df[search_term].astype(float),  # Data to be color-coded
     locationmode='USA-states',  # set of locations match entries in `locations`
-    colorscale='Reds',
+    colorscale='Blues',
     colorbar_title="Search Popularity",
 ))
 
@@ -251,7 +243,7 @@ def make_h():
 
 
 '''
-Makes an analysis component with respective paragraphs, 
+Makes an analysis component with respective paragraphs
 given the analysis number (e.g. 1 for "a1")
 '''
 
@@ -266,6 +258,30 @@ def make_a(a_num):
     )
 
 
+def make_t(title):
+    return dbc.Row(
+        [
+            dbc.Col(
+                [
+                    html.H2(title)
+                ], md=8
+            )
+        ], justify="center",
+    )
+
+
+def quote_block():
+    return dbc.Row(
+        [
+            dbc.Col(
+                [
+                    html.Blockquote(children=[
+                        html.P("116th congress. 1st session s. 1426. to amend the endangered species act of 1973. to establish a procedure for approval of certain settlements. in the senate of the united states may 13, 2019 mr. cornyn (for himself, mr. boozman, mr. crapo, mr. cruz, mr. enzi, mr. lankford, mr. risch, mr. sullivan, and mr. wicker) introduced the following bill; which was read twice and referred to the committee on environment and public works a bill to amend the endangered species act of 1973 to establish a procedure for approval of certain settlements.\n")
+                    ])
+                ], md=8
+            )
+        ], justify="center"
+    )
 # APP LAYOUT
 # ==========
 
@@ -279,11 +295,18 @@ app.layout = html.Div(children=[
     make_j(),
     make_h(),
     make_a(1),
+    make_t("So, what is the most crucial solution to reversing our emissions?"),
     make_interaction(solution_interaction()),
     make_a(2),
     make_a(3),
     make_interaction(make_graph(map_fig)),
-    make_interaction(make_graph(avg_temp_fig))
+    make_a(4),
+    make_interaction(make_graph(avg_temp_fig)),
+    make_a(5),
+    make_t("Inviting Change Through Policy"),
+    make_a(6),
+    quote_block(),
+    make_a(7)
 
     # dcc.Input(id='new_search_term', type='text', value='Climate Change'),
     # html.Button(id='submit_button', n_clicks=0, children='Submit'),
@@ -413,7 +436,6 @@ app.layout = html.Div(children=[
     dash.dependencies.Output('solutions-output', 'children'),
     [dash.dependencies.Input('solutions-dropdown', 'value')])
 def update_output(user_input):
-
     if(user_input == None):
         return "Pick an option from the dropdown to see what is the most critical solution"
     else:
