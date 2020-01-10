@@ -436,7 +436,7 @@ app.layout = html.Div(children=[
     dash.dependencies.Output('solutions-output', 'children'),
     [dash.dependencies.Input('solutions-dropdown', 'value')])
 def update_output(user_input):
-    if(user_input == None):
+    if(user_input is None):
         return "Pick an option from the dropdown to see what is the most critical solution"
     else:
         user_solution_reduction = (
