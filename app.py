@@ -353,6 +353,7 @@ app.layout = html.Div(children=[
     # ),
 ])
 
+app.title = "The Climate Change Conundrum"
 
 '''
     Handles user interaction for the state graph. 
