@@ -11,6 +11,10 @@ body {
   font-size: 1.3rem;
 }
 
+*{
+  max-width: 100vw;
+}
+
 .jumbotron p {
   font-size: 1.5rem;
 }
@@ -95,6 +99,7 @@ body {
   filter: grayscale(100%);
   position: relative;
   padding: 70vh 0 0 0;
+  margin:0;
 }
 
 .hero:hover {
