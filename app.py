@@ -1,4 +1,5 @@
 import dash
+import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
@@ -22,6 +23,10 @@ pytrends = TrendReq(hl='en-US', tz=360)
 pytrends.build_payload(['Climate Change'], cat=0,
                        timeframe='today 5-y', geo='US', gprop='')
 
+'''
+load electric bill data frame
+'''
+electric_df = pd.read_csv("data/electric.csv")
 
 '''
 Build age data frame
@@ -135,7 +140,39 @@ def solution_interaction():
 # APP COMPONENTS
 # ==========
 
-''' 
+'''
+Electric Bill Data
+'''
+bill_data = dash_table.DataTable(
+    columns=[{"name": i, "id": i} for i in electric_df.columns],
+    data=electric_df.to_dict('records'),
+    style_as_list_view=True,
+    style_cell={'padding': '5px','textAlign':'left'},
+    style_header={
+        'backgroundColor': 'white',
+        'fontWeight': 'bold'
+    },
+    style_data_conditional=[{
+        'if': {'column_id': 'October'},
+        'backgroundColor': '#e0f3f8',
+        'color': 'black',
+    }]
+)
+'''
+Electric Bill Table Component
+'''
+def make_table():
+    return dbc.Row(
+        [
+            dbc.Col(
+                children=[
+                    bill_data
+                ], md=8,
+            )
+        ], justify="center",
+    )
+
+'''
 State map component
 '''
 
@@ -153,19 +190,6 @@ map_fig.update_layout(
 )
 
 
-# scatter = go.Scatter(
-#     x=state_df[characteristic_term], y=state_df[new_search_term], mode="markers", hoverinfo="text", hovertext=state_df["abbrev"])
-# correlation = go.Scatter(
-#     x=np.unique(state_df[characteristic_term]),
-#     y=np.poly1d(np.polyfit(state_df[characteristic_term], state_df[new_search_term], 1))(
-#         np.unique(state_df[characteristic_term]))
-# )
-# fig = go.Figure(data=[scatter, correlation])
-# fig.update_layout(
-#     title_text=new_search_term + ' Search Popularity by %s of State' % characteristic_term,
-#     xaxis_title=characteristic_term,
-#     yaxis_title=new_search_term + ' Search Popularity',
-# )
 '''
 Climate Change Search Popularity by Average Temperature
 '''
@@ -295,18 +319,20 @@ app.layout = html.Div(children=[
     make_j(),
     make_h(),
     make_a(1),
+    make_table(),
+    make_a(2),
     make_t("So, what is the most crucial solution to reversing our emissions?"),
     make_interaction(solution_interaction()),
-    make_a(2),
     make_a(3),
-    make_interaction(make_graph(map_fig)),
     make_a(4),
-    make_interaction(make_graph(avg_temp_fig)),
+    make_interaction(make_graph(map_fig)),
     make_a(5),
-    make_t("Inviting Change Through Policy"),
+    make_interaction(make_graph(avg_temp_fig)),
     make_a(6),
+    make_t("Inviting Change Through Policy"),
+    make_a(7),
     quote_block(),
-    make_a(7)
+    make_a(8)
 
     # dcc.Input(id='new_search_term', type='text', value='Climate Change'),
     # html.Button(id='submit_button', n_clicks=0, children='Submit'),
@@ -327,6 +353,7 @@ app.layout = html.Div(children=[
     # ),
 ])
 
+app.title = "The Climate Change Conundrum"
 
 '''
     Handles user interaction for the state graph. 
